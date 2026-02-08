@@ -10,6 +10,6 @@ class MosqueUser extends Authenticatable
     protected $hidden = ['password'];
 
     public function mosque() {
-        return $this->belongsTo(Mosque.class);
+        return $this->belongsTo(Mosque::class);
     }
 }
