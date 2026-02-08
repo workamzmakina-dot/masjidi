@@ -14,7 +14,9 @@ class ResolveTenant
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $slug = $request->route('mosque_slug');
+        $slug = $request->header('X-Tenant-Slug')
+            ?? $request->route('mosque_slug')
+            ?? $request->route('slug');
         $host = $request->getHost();
 
         // 1. Resolve by Custom Domain first, then by Slug
