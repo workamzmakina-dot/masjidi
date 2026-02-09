@@ -1,5 +1,0 @@
-{
-  "name": "MosqueSaaS Architect Dashboard",
-  "description": "A high-fidelity architectural blueprint and database schema for a multi-tenant Mosque SaaS platform, including ERD, migrations, and tenant isolation strategies.",
-  "requestFramePermissions": []
-}
