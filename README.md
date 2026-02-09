@@ -1,20 +1,44 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Mosque SaaS Platform
 
-# Run and deploy your AI Studio app
+Multi-tenant SaaS platform for mosques with a Laravel 11 API backend and a React 18 frontend.
 
-This contains everything you need to run your app locally.
+## Structure
 
-View your app in AI Studio: https://ai.studio/apps/drive/1YOQq-ZNhOUKFeZV03LKLNj0S0XdfLk9e
+```
+/backend   Laravel 11 API
+/frontend  React 18 + Vite + Tailwind
+```
 
-## Run Locally
+## Backend (Laravel 11)
 
-**Prerequisites:**  Node.js
+```bash
+cd backend
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate --seed
+php artisan serve
+```
 
+## Frontend (React 18)
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+```bash
+cd frontend
+npm install
+cp .env.example .env
+npm run dev
+```
+
+## Default Accounts
+
+- Platform Admin: `admin@mosquesaas.com` / `password`
+- Tenant Admin (Al-Markaz): `admin@al-markaz.org` / `password`
+
+## Key Endpoints
+
+- `POST /api/auth/login`
+- `POST /api/auth/logout`
+- `GET /api/auth/me`
+- `GET /api/health`
+
+Tenant resolution uses `X-Tenant-Slug` or the `{slug}` URL parameter.
